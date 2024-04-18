@@ -1220,6 +1220,10 @@ state_topic: stat/tasmota_switch/POWER
 # lower case.
 state_response_template:
   {payload}
+# To properly retrieve the initial state on startup, Moonraker needs to send
+# a query to the device. This is done without sending any parameters to the
+# query_topic, Tasmota responds with the actual state.
+query_topic: cmnd/tasmota_switch/POWER
 # Tasmota updates the state topic when the device state changes, so it is not
 # not necessary to query after a command
 query_after_command: False
